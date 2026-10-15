@@ -1,6 +1,7 @@
+import {requestStop} from './stop-state.js';
 import {setOf} from './equipment-sets.js';
 export const BAG_DEFAULT={enabled:false,maxGrade:1,protectSets:true,protectBetter:true};
 export function bagRules(s){return {...BAG_DEFAULT,...s.settings.O};}
 export function protectedItem(s,i,score){let r=bagRules(s);return i.locked||r.protectSets&&!!setOf(i)||r.protectBetter&&score(s,i)>score(s,s.equipment[i.slot]);}
 export function cleanBag(s,score,log,{townRule=null}={}){let r=bagRules(s);if(!r.enabled&&!townRule)return {count:0,gold:0};let sold=[],gold=0;s.bag=s.bag.filter(i=>{if(protectedItem(s,i,score))return true;let match=townRule?townRule==='일반 판매'?i.grade===0:townRule==='일반·고급 판매'?i.grade<=1:townRule==='낮은 장비'?score(s,i)<=score(s,s.equipment[i.slot]):false:i.grade<=r.maxGrade;if(!match)return true;gold+=Math.round(i.value*.4);sold.push(i);return false});if(sold.length){s.gold+=gold;let names=sold.map(i=>i.name+'(+'+Math.round(i.value*.4)+'G)');for(let i=0;i<names.length;i+=5)log(s,`자동 판매 [${townRule?'마을':'가방'}] ${names.slice(i,i+5).join(' · ')}${i===0?' · 합계 '+sold.length+'개 / +'+gold+'G':''}`,'loot');}return {count:sold.length,gold};}
-export function bagFullNotice(s,log){let text='가방 40/40 · 자동 정리로 공간을 확보하지 못했습니다. 전투가 끝나면 정지합니다. 잠금/세트 보호와 보유 장비를 확인하세요.';if(s.logs.at(-1)?.text!==text)log(s,text,'danger');s.pauseRequested=true;}
+export function bagFullNotice(s,log){let text='가방 40/40 · 자동 정리로 공간을 확보하지 못했습니다. 전투가 끝나면 정지합니다. 잠금/세트 보호와 보유 장비를 확인하세요.';if(s.logs.at(-1)?.text!==text)log(s,text,'danger');requestStop(s,'bag');}
