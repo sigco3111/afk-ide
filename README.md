@@ -4,7 +4,7 @@
 
 VSCode 같은 어두운 IDE 화면 속에서 펼쳐지는 **정통 판타지 방치형 RPG**입니다. 화면은 개발 도구처럼 보이지만, 안에 담긴 것은 몬스터, 장비, 기술, 퀘스트입니다. 실행하면 영웅이 스스로 모험하고, 정지하면 다음 여정을 준비할 수 있습니다.
 
-## v1.0.2 화면·템포 개정
+## v1.0.3 다중 턴 전투·자동 진행 수정
 
 VSCode Dark+ 팔레트, 탐색기 트리, activity bar, `adventure.log` / `quest.log` 탭, 모노스페이스 로그, 통합 터미널과 파란 상태바로 UI를 개정했습니다. 게임 용어와 저장 호환성은 그대로 유지합니다.
 
@@ -146,3 +146,11 @@ python3 build.py
 UI 참고: [VSCode 공식 User Interface 문서](https://code.visualstudio.com/docs/getstarted/userinterface)의 workbench 구성을 기준으로 비교했습니다. AFK IDE는 Microsoft와 관계없는 독립 게임입니다. 상단 메뉴와 소스관리/확장 등의 일부 아이콘은 시각적 표현이며 실제 IDE 기능을 제공하지 않습니다.
 
 VSCode 진행 표시 근거: [공식 progressbar.css](https://github.com/microsoft/vscode/blob/main/src/vs/base/browser/ui/progressbar/progressbar.css). VSCode에는 HP/MP 개념이 없으므로, 이 게이지는 VSCode의 determinate 진행 표시를 게임 자원에 적용한 표현입니다.
+
+### v1.0.3
+
+- 일반/희귀/우두머리 몬스터 HP를 기존 기준의 8배로 늘려 한 전투에서 여러 턴을 주고받도록 조정했습니다. 전투 화면에 현재 턴 수도 표시합니다.
+- 턴 간격은 1.2초, 탐험 2.4초, 귀환 3.2초, 휴식 4초로 조정했습니다. v1.0.2의 3.2초 턴 대기를 줄이고 실제 전투의 턴 수를 늘리는 방향입니다.
+- Lv30 시련 완료가 자동 정지/설정 팝업을 강제하던 원인을 수정했습니다. 이제 알림만 남기고 계속 모험합니다. 사용자가 정지해야 수동 전직을 선택합니다.
+- 전투 중 사용자가 정지를 요청했을 때 전투 종료 후 설정 화면이 열리는 동작은 유지합니다.
+- 이미 진행 중인 전투의 HP는 세이브를 그대로 보존하며, 다음 조우부터 새 HP가 적용됩니다.
