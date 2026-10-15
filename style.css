@@ -29,3 +29,5 @@
 .rare-rules{grid-column:1/-1;border-left:2px solid #c586c0;padding:8px 10px;background:#c586c008;color:#aaa;font-size:11px}
 
 #bagSettings{margin-top:12px}#bagSettings label{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:12px;min-height:36px}#bagGrade{margin-left:auto}.bag-warning{color:#dcdcaa;border:1px solid #8c7439;padding:8px;font-size:11px;overflow-wrap:anywhere}
+
+.rush-roster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0;font-size:12px}.rush-roster div{overflow-wrap:anywhere}@media(max-width:600px){.rush-roster{grid-template-columns:1fr}}
