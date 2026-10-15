@@ -145,4 +145,4 @@ python3 build.py
 
 UI 참고: [VSCode 공식 User Interface 문서](https://code.visualstudio.com/docs/getstarted/userinterface)의 workbench 구성을 기준으로 비교했습니다. AFK IDE는 Microsoft와 관계없는 독립 게임입니다. 상단 메뉴와 소스관리/확장 등의 일부 아이콘은 시각적 표현이며 실제 IDE 기능을 제공하지 않습니다.
 
-VSCode 진행 표시 근거: [공식 progressbar.css](https://github.com/microsoft/vscode/blob/main/src/vs/base/browser/ui/progressbar/progressbar.css). 게임에는 HP/MP 개념이 없으므로, 이 게이지는 VSCode의 determinate 진행 표시를 게임 자원에 적용한 표현입니다.
+VSCode 진행 표시 근거: [공식 progressbar.css](https://github.com/microsoft/vscode/blob/main/src/vs/base/browser/ui/progressbar/progressbar.css). VSCode에는 HP/MP 개념이 없으므로, 이 게이지는 VSCode의 determinate 진행 표시를 게임 자원에 적용한 표현입니다.
