@@ -12,11 +12,11 @@
 
 | 고레벨 모험 | 경계 심화 러시 |
 |---|---|
-| ![지역 모험과 전용 장비 획득](final-adventure.png) | ![Lv110 경계 심화 러시](final-endgame.png) |
+| ![지역 모험과 전용 장비 획득](1-final-adventure.png) | ![Lv110 경계 심화 러시](2-final-endgame.png) |
 
 | 영구 유물 도감 | 모바일 |
 |---|---|
-| ![유물 획득처와 세트 효과](final-relics.png) | ![모바일 심화 러시](final-mobile.png) |
+| ![유물 획득처와 세트 효과](3-final-relics.png) | ![모바일 심화 러시](4-final-mobile.png) |
 
 화면은 검증용 저장으로 촬영했습니다. 모든 영웅이 이 수치나 장비로 시작하지는 않습니다.
 
