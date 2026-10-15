@@ -177,3 +177,15 @@ VSCode 진행 표시 근거: [공식 progressbar.css](https://github.com/microso
 검증: `node tests/progression.test.js`, `node tests/records-ui.test.js`, `node tests/balance.test.js`, 기존 engine/browser/multiturn 회귀 테스트. 실제 배포 테스트는 `AFK_URL=https://sigco3111.github.io/afk-ide/ node tests/records-ui.test.js`.
 
 무한의 탑과 2차 전직/새 테마·새 기술은 이번 핵심 v1.1 릴리스에 포함하지 않았습니다. 탑은 v1.2 계획이며 그 외 확장도 후속 범위입니다.
+
+### v1.1 실제 배포 화면
+
+| 환생 확인 | 몬스터 도감 |
+|---|---|
+| ![환생 확인](1-v11-rebirth-confirm.png) | ![몬스터 도감](2-v11-monsters.png) |
+
+| 장비 수집첩 | 모바일 업적 |
+|---|---|
+| ![장비 수집첩](3-v11-gear.png) | ![모바일 업적](4-v11-mobile-achievements.png) |
+
+동일 시드 단일 엔진 측정(초, 전사/사망0): 환생 0/5/10회에서 Lv10 650/665/581, 지역10 도달 3908/3731/3740, 환생 가능 5309/5023/5206. 각 5회마다 모든 유물 1등급씩 보유한 조건입니다. 보상 보정은 적용되나 난수·장비 경로로 모든 구간이 단조롭게 빨라지지는 않습니다. 이 수치는 실기기 로딩 시간이 아닌 게임 시뮬레이션 경과 시간이며, 통계적 평균이나 속도 보장이 아닙니다.
