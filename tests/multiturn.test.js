@@ -1,0 +1,4 @@
+import assert from 'node:assert/strict';
+import {createState,tick,toggle,needXP} from '../engine.js';
+for(const job of ['전사','마법사','도적','궁수']){let s=createState('다중 턴',job);toggle(s);let turns=[];while(turns.length<20){let kills=s.kills;tick(s,.2);if(s.kills>kills){turns.push(s.turn);assert(s.running,'ordinary battle must continue')}}const average=turns.reduce((a,b)=>a+b,0)/turns.length;assert(average>=3,job+' multiple turns');console.log(job,{average,min:Math.min(...turns),max:Math.max(...turns)});}
+let s=createState('시련 자동진행','전사');s.level=30;s.stats=s.stats.map(x=>x+29);s.totalXP=Array.from({length:29},(_,i)=>needXP(i+1)).reduce((a,b)=>a+b,0);s.trial=4;toggle(s);while(s.kills<3)tick(s,.2);assert(s.running);assert(s.trial>=7);assert(!s.pauseRequested);toggle(s);while(s.running)tick(s,.2);assert(!s.enemy);console.log('PASS trial completed without auto-stop; explicit stop still waits for battle end');
