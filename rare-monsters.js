@@ -1,0 +1,8 @@
+import {THEMES}from'./data.js';
+export const RARE_POOL=[['은안개 사냥개','가시관 숲지기','천년 수목왕'],['비취 독두꺼비','수렁의 장송자','역병의 히드라'],['유리등 전갈','금사막 사제','태양의 스핑크스'],['청빙 뿔사슴','눈보라 추적자','빙하의 백룡'],['반향 수정거미','흑정석 광부','심층의 수정심장'],['왕관 쓴 망령','녹슨 기수','망국의 황제'],['잿불 도롱뇽','용암 갑주병','재탄생의 불사조'],['공허 포식자','꿈을 먹는 자','무명의 심연왕'],['은달 나비여왕','성목의 감시자','월광의 심판자'],['산호 왕실기사','진주빛 해파리','해일의 레비아탄'],['청뢰 갈기수','먹구름 사냥꾼','폭풍의 거신'],['장미가시 망령','서약의 묘지기','최후의 성기사']];
+export const RARE_TRAITS=[{id:'fury',name:'광폭',description:'3턴마다 공격 피해 +15%'},{id:'shell',name:'강갑',description:'기본 방어 +25%'},{id:'regen',name:'재생',description:'3턴마다 최대HP 2% 회복'},{id:'siphon',name:'마력갈취',description:'3턴마다 영웅 최대MP 3% 감소'}];
+export function rareProfile(theme,kind,idx){if(!['rare','epic'].includes(kind)||kind==='rare'&&idx===0)return null;let epic=kind==='epic',variant=epic?2:idx-1,trait=RARE_TRAITS[(theme+variant)%4];return {name:RARE_POOL[theme][variant],kind,idx,theme,hp:epic?2.2:1.7,atk:epic?1.12:1.05,def:trait.id==='shell'?1.25:1,trait,xp:epic?1.8:1.25,gold:epic?2:1.4};}
+export function extraMonsters(){return RARE_POOL.flatMap((names,theme)=>names.map((name,i)=>{let kind=i===2?'epic':'rare',idx=i===2?0:i+1;return {id:`${theme}:${kind}:${idx}`,name,theme,kind,...rareProfile(theme,kind,idx)}}));}
+// The original 2% route is shared, never an additional rare roll. Boss priority and safety bypass unchanged.
+export function rarePick(theme,r){if(r<.106)return rareProfile(theme,'epic',0);if(r<.112)return null;return rareProfile(theme,'rare',r<.116?1:2);}
+export function rareFromEnemy(e){let [theme,kind,idx]=(e.catalogId||'').split(':');return rareProfile(Number(theme),kind,Number(idx));}
