@@ -1,0 +1,30 @@
+const THIRD_ROWS=[
+['paladin','seraph','세라핌','새벽의 수호자',1.14,1.20,1.20,'성광 낙인|천익 참격|여명의 축도|정화의 불꽃|천상의 성벽|심판의 날개|일곱 빛의 강림','mark,pierce,heal,dot,guard,multi,finisher','heal'],
+['paladin','inquisitor','인퀴지터','성화의 심판관',1.24,1.10,1.10,'죄악 각인|이단의 단죄|성화 흡수|참회의 불길|집행자의 맹세|속죄의 칼날|종말의 판결','mark,pierce,vamp,dot,buff,multi,finisher','weaken'],
+['berserker','bloodlord','블러드로드','붉은 왕좌의 주인',1.24,1.14,1.04,'혈왕의 낙인|핏빛 도륙|생명의 약탈|붉은 역병|피의 갑주|왕좌의 난격|혈월 처형','mark,multi,vamp,dot,guard,pierce,finisher','vamp'],
+['berserker','titan','타이탄','불멸의 거인',1.15,1.25,1.18,'거인의 발자국|산맥 분쇄|대지의 심장|균열의 상처|불멸의 피부|지축 강타|세계 파괴','mark,multi,heal,dot,guard,pierce,finisher','guard'],
+['archmage','astral','아스트랄 세이지','별의 질서를 읽는 자',1.23,1.10,1.08,'성좌의 각인|혜성 연쇄|별빛 회귀|성운의 잔불|궤도의 결계|유성 관통|천구 붕괴','mark,multi,heal,dot,guard,pierce,finisher','buff'],
+['archmage','elemental','엘리멘탈 로드','네 원소의 지배자',1.18,1.15,1.15,'원초의 표식|폭풍 영창|샘물의 순환|홍련의 해일|빙하의 왕관|뇌광 관통|사원소 융합','mark,multi,heal,dot,guard,pierce,finisher','weaken'],
+['warlock','voidlord','보이드 로드','공허의 문지기',1.25,1.08,1.05,'공허의 낙인|차원 절단|존재 포식|무명의 역병|심연의 장막|공간 파열|영점 붕괴','mark,pierce,vamp,dot,guard,multi,finisher','weaken'],
+['warlock','soulkeeper','소울 키퍼','영혼의 등불',1.15,1.22,1.14,'혼백의 인장|영혼 연쇄|생명의 등불|망각의 불꽃|영혼의 성벽|혼의 관통|윤회의 문','mark,multi,heal,dot,guard,pierce,finisher','heal'],
+['assassin','executioner','엑시큐셔너','마지막 이름을 부르는 자',1.25,1.08,1.05,'종언의 표식|사형 집행|핏빛 회수|단절의 독|침묵의 장막|처형 연격|최후의 선고','mark,pierce,vamp,dot,guard,multi,finisher','buff'],
+['assassin','venomancer','베노맨서','천독의 연금술사',1.19,1.14,1.10,'천독 각인|독니 관통|해독의 순환|만독의 꽃|독안개 망토|독사 난무|부식의 종말','mark,pierce,heal,dot,guard,multi,finisher','dot'],
+['shadowdancer','nightblade','나이트블레이드','밤의 검무자',1.24,1.10,1.08,'월식 표식|밤의 칼날|암영 흡수|그믐의 상처|월영 장막|신월 난무|영야의 검','mark,pierce,vamp,dot,guard,multi,finisher','mark'],
+['shadowdancer','mirage','미라주 위버','천 개의 그림자',1.15,1.18,1.20,'신기루의 표식|환상 관통|꿈의 귀환|허상의 불꽃|거울의 수호|천영 난무|무한의 무도','mark,pierce,heal,dot,guard,multi,finisher','guard'],
+['sniper','deadeye','데드아이','지평선의 종결자',1.25,1.08,1.05,'종점 조준|지평선 관통|고요의 회수|상흔의 탄도|완벽한 엄폐|일점 연사|최후의 탄도','mark,pierce,vamp,dot,guard,multi,finisher','mark'],
+['sniper','starseeker','스타시커','별을 꿰는 화살',1.20,1.13,1.12,'북극성 표식|은하 관통|별빛 호흡|유성의 잔상|성운 엄폐|별비 연사|천궁의 화살','mark,pierce,heal,dot,guard,multi,finisher','buff'],
+['beastmaster','wildsovereign','와일드 소버린','황야의 군주',1.22,1.18,1.10,'군주의 표식|사자왕 돌진|야생의 맥박|맹수의 상처|코뿔소 수호|백수의 행진|황야의 심판','mark,multi,heal,dot,guard,pierce,finisher','vamp'],
+['beastmaster','spiritwarden','스피릿 워든','정령숲의 파수꾼',1.13,1.24,1.20,'정령의 낙인|바람 정령탄|생명의 거목|가시 정령꽃|고목의 수호|정령의 화살|태고의 깨어남','mark,multi,heal,dot,guard,pierce,finisher','heal']];
+export const THIRD=Object.fromEntries([...new Set(THIRD_ROWS.map(r=>r[0]))].map(parent=>[parent,THIRD_ROWS.filter(r=>r[0]===parent).map(([parent,id,name,title,atk,hp,def,names,kinds,echo])=>({parent,id,name,title,atk,hp,def,mp:1.12,skills:names.split('|'),kinds:kinds.split(','),echo,story:title+'의 맹세를 계승한다. 기존 2차의 힘에 추가 배율과 고유 기술이 더해진다.'}))]));
+export const thirdPath=s=>Object.values(THIRD).flat().find(p=>p.id===s.thirdClass&&p.parent===s.secondClass);
+export const THIRD_LEVELS=[90,90,90,95,100,105,110];
+export const thirdStatIndex=s=>s.job==='마법사'?2:s.job==='전사'?0:1;
+export function ensureThird(s){s.thirdClass??='';s.thirdTrial??={kills:0,bosses:0};if(s.thirdClass){while(s.skillUses.length<29)s.skillUses.push(0);while(s.cooldowns.length<29)s.cooldowns.push(0);}return s;}
+export const thirdReady=s=>!!s.secondClass&&!s.thirdClass&&s.level>=90&&s.stats[thirdStatIndex(s)]>=80&&Object.keys(s.permanent.achievements).length>=5&&(s.thirdTrial?.kills||0)>=30&&(s.thirdTrial?.bosses||0)>=3;
+export function advanceThirdTrial(s,e){ensureThird(s);if(!s.secondClass||s.level<90||s.thirdClass)return;let before=thirdReady(s);s.thirdTrial.kills=Math.min(30,s.thirdTrial.kills+1);if(e.boss)s.thirdTrial.bosses=Math.min(3,s.thirdTrial.bosses+1);if(!before&&thirdReady(s)){s.logs.push({text:'3차 시련 완료. 모험은 계속됩니다. 정지 후 H에서 경로를 선택하거나 Q 예약을 확인하세요.',type:'level',t:s.elapsed});if(s.logs.length>200)s.logs.shift();}}
+export function chooseThird(s,id){if(s.running||s.enemy||s.tower?.enemy||!thirdReady(s)||!THIRD[s.secondClass]?.some(p=>p.id===id))return false;s.thirdClass=id;ensureThird(s);return true;}
+export function thirdSkills(s){let p=thirdPath(s);if(!p)return [];return p.skills.map((name,i)=>({name,grade:i===6?'신화':'전설',kind:p.kinds[i],echo:p.echo,power:1.12,cost:18+i*2,cd:3+i%3,index:22+i,unlocked:s.level>=THIRD_LEVELS[i],requirement:'3차 전직 + Lv'+THIRD_LEVELS[i],extra:'3차 공명: '+({heal:'HP5% 회복',vamp:'HP3% 회복',guard:'수호 2턴',buff:'공격강화 2턴',weaken:'쇠약 2턴',dot:'공격력15% 지속피해 2턴',mark:'표식 2턴'}[p.echo])+' · 기본 기술 피해 +12%'}));}
+export const THIRD_TITLES=Object.fromEntries(Object.values(THIRD).flat().map(p=>['third-'+p.id,p.title]).concat([['third-count-1','세 번째 맹세'],['third-count-4','새 경지의 탐구자'],['third-count-16','열여섯 운명의 계승자'],['third-skills-112','신화의 교본']]));
+const THIRD_SKILL_NAMES=new Set(Object.values(THIRD).flat().flatMap(p=>p.skills));
+export function thirdDefs(s){let paths=s.permanent.mastery?.thirds||[],skills=(s.permanent.mastery?.skills||[]).filter(k=>THIRD_SKILL_NAMES.has(k.slice(k.indexOf(':')+1))).length;return [...Object.values(THIRD).flat().map(p=>({id:'third-'+p.id,name:p.name+' 3차 전직',current:paths.includes(p.id)?1:0,target:1,group:'3차 전직',rule:'해당 3차 경로를 선택. 환생 후 영구 보존.'})),...[1,4,16].map(n=>({id:'third-count-'+n,name:'3차 경로 '+n+'개 수집',current:paths.length,target:n,group:'3차 전직',rule:'고유 3차 경로 수집. 같은 경로 재선택 중복 없음.'})),{id:'third-skills-112',name:'3차 고유 기술 112개 해금',current:skills,target:112,group:'3차 전직',rule:'16경로의 7기술을 각각 해금. Lv110까지 단계 해금.'}].map(a=>({...a,reward:'칭호: '+THIRD_TITLES[a.id]+' (외형)'}));}
+export function validateThird(s){if(s.thirdClass===undefined&&s.thirdTrial===undefined)return;let t=s.thirdTrial;if(typeof s.thirdClass!=='string'||s.thirdClass&&(!thirdPath(s)||!s.promoted||s.level<90||s.skillUses.length!==29||s.cooldowns.length!==29)||!t||!Number.isInteger(t.kills)||t.kills<0||t.kills>30||!Number.isInteger(t.bosses)||t.bosses<0||t.bosses>3)throw Error('3차 전직 기록 오류');}
