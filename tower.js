@@ -4,7 +4,7 @@ import {emitFx} from './combat-fx.js';
 import {resetEffects,turnEffects,skillAttack,incomingFactor} from './combat-skills.js';
 import {ensureSecond,skillMax,skillNames,secondPath} from './advancement.js';
 import {CLASSES} from './data.js';
-export function ensureTower(s){ensureSecond(s);s.worldBoundary??=Math.max(8,Math.ceil(s.unlocked/8)*8);if(s.version<3){s.version=3;s.mode='region';s.tower={cleared:'0',floor:'1',failures:0,phase:'between',timer:0,enemy:null,sequence:0};s.permanent.highestTower??='0';s.permanent.towerBadges??=[];s.permanent.lastTowerEvent??='';s.settings.N={retry:false};s.settings.I={enabled:false,type:'level',value:30};s.settings.J={type:'all'};}return s;}
+export function ensureTower(s){ensureSecond(s);s.highlandStart??=Math.max(19,s.unlocked+1);s.worldBoundary??=Math.max(8,Math.ceil(s.unlocked/8)*8);if(s.version<3){s.version=3;s.mode='region';s.tower={cleared:'0',floor:'1',failures:0,phase:'between',timer:0,enemy:null,sequence:0};s.permanent.highestTower??='0';s.permanent.towerBadges??=[];s.permanent.lastTowerEvent??='';s.settings.N={retry:false};s.settings.I={enabled:false,type:'level',value:30};s.settings.J={type:'all'};}return s;}
 export function towerPower(floor){const f=BigInt(floor),fixed=49218022670182n;let value=(f-1n)*fixed,exponent=value/1000000000000000n,part=Number(value%1000000000000000n)/1e15;return {mantissa:10**part,exponent:exponent.toString()};}
 export function towerStat(base,floor,boss=false){let p=towerPower(floor),m=p.mantissa*base*(boss?1.5:1),e=BigInt(p.exponent);while(m>=10){m/=10;e++}return {mantissa:m,exponent:e.toString()};}
 export const towerNumber=(v)=>`${v.mantissa.toFixed(2)}e${v.exponent}`;
