@@ -25,11 +25,11 @@ VSCode Dark+ 팔레트, 탐색기 트리, activity bar, `adventure.log` / `quest
 
 | 자동 모험 | 정지 후 개입 |
 |---|---|
-| ![자동 모험](2-adventure.png) | ![개입 설정](3-settings.png) |
+| ![자동 모험](1-adventure.png) | ![개입 설정](2-settings.png) |
 
 | 시작 화면 | 모바일 모험 |
 |---|---|
-| ![직업 선택](4-start.png) | ![390px 모바일 모험](5-mobile-adventure.png) |
+| ![직업 선택](3-start.png) | ![390px 모바일 모험](4-mobile-adventure.png) |
 
 데스크톱은 영웅 정보, 모험 일지, 전투 기록, 가방, 하단 상태바의 다섯 영역으로 구성됩니다. 휴대폰에서는 **영웅 / 모험 / 전투 / 가방** 탭을 사용합니다. 아이콘은 모두 SVG이며, 외부 이미지나 음원을 내려받지 않습니다.
 
@@ -139,3 +139,6 @@ python3 build.py
 - **v1.3**: 3차 전직, 전설 고유 효과와 장기 콘텐츠 확장.
 
 이 기능들은 현재 v1에 구현된 기능이 아닙니다. 자세한 해금 조건, 보존·초기화 규칙, 인수 기준은 [설계 문서](docs/DESIGN.md)를 참고하세요.
+
+
+UI 참고: [VSCode 공식 User Interface 문서](https://code.visualstudio.com/docs/getstarted/userinterface)의 workbench 구성을 기준으로 비교했습니다. AFK IDE는 Microsoft와 관계없는 독립 게임입니다. 상단 메뉴와 소스관리/확장 등의 일부 아이콘은 시각적 표현이며 실제 IDE 기능을 제공하지 않습니다.
