@@ -14,3 +14,5 @@
 #towerPanel{margin:15px 0}#towerPanel select,#towerPanel input[type=number]{width:100%;margin:8px 0}#towerPanel h3{margin-top:16px}#towerPanel button{margin:8px 5px 0 0}
 
 #towerQuickDialog{width:min(480px,calc(100vw - 24px))}#towerQuickContent p{line-height:1.7}#towerQuickContent button{margin:8px 6px 0 0}#mobileTower{color:#9cdcfe}
+.skill-library{margin-top:14px}.skill-library summary{cursor:pointer;color:#9cdcfe}.skill-library article{border-top:1px solid #3c3c3c;padding:10px 0}.skill-library p{line-height:1.7;overflow-wrap:anywhere}
+#settingsGrid .menu-card:has(.skill-library){grid-column:1/-1}.skill-library[open]{max-height:420px;overflow:auto;padding-right:8px}@media(max-width:767px){#settingsGrid{grid-template-columns:1fr}.skill-library[open]{max-height:340px}}
