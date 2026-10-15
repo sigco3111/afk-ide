@@ -4,7 +4,7 @@ import {THEMES} from './data.js';
 import {resetEffects,turnEffects,skillAttack,incomingFactor} from './combat-skills.js';
 import {emitFx} from './combat-fx.js';
 export const rushRecord=s=>s.permanent.rush||{best:0,clears:0,stamps:[],crown:false};
-export const rushEligible=s=>THEMES.map((_,i)=>i).filter(i=>(s.permanent.monsters[i+':boss:0']?.kills||0)>0);
+export const rushEligible=s=>THEMES.slice(0,12).map((_,i)=>i).filter(i=>(s.permanent.monsters[i+':boss:0']?.kills||0)>0);
 export function enterRush(s){if(s.running||s.level<30||!rushEligible(s).length||s.enemy&&!(s.mode==='rush'&&s.rush?.active)||s.tower.enemy)return false;if(!s.rush?.active)s.rush={active:true,roster:rushEligible(s),index:0,completed:false};if(s.mode!=='rush')delete s.presetMode;s.mode='rush';s.phase=s.enemy?'battle':'explore';if(!s.enemy)s.timer=0;clearStop(s);s.running=true;return true;}
 export function leaveRush(s){if(s.running)return false;if(s.rush)s.rush.active=false;delete s.presetMode;s.mode='region';s.enemy=null;s.phase='explore';s.timer=0;s.pauseRequested=false;markStop(s,'return_region');return true;}
 export function rushEnemy(theme){let level=20+theme*5,hp=Math.round((18+level*7)*14*2.6*(1+theme*.08));return {name:THEMES[theme][2],level,hp,maxHP:hp,atk:(3+level*1.2)*1.25*(1+theme*.04),def:level*1.1,boss:true,rare:false,rushTheme:theme};}
