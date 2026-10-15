@@ -10,3 +10,5 @@
 @media(max-width:767px){.mobile-nav{grid-template-columns:repeat(5,minmax(0,1fr))}.mobile-nav #mobileRecords{color:#9cdcfe}.mobile-nav button{padding-left:4px;padding-right:4px}}
 
 .record-tools{display:flex;gap:8px;flex-wrap:wrap}.record-tools input{flex:1;min-width:120px}#saveFilesDialog{width:550px}#quickImport{margin-top:10px;width:100%}.record-card[hidden]{display:none}@media(max-width:767px){.record-tools input{width:100%}.record-tools button{min-height:44px}}
+
+#towerPanel{margin:15px 0}#towerPanel select,#towerPanel input[type=number]{width:100%;margin:8px 0}#towerPanel h3{margin-top:16px}#towerPanel button{margin:8px 5px 0 0}
