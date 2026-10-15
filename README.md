@@ -4,9 +4,11 @@
 
 VSCode 같은 어두운 IDE 화면 속에서 펼쳐지는 **정통 판타지 방치형 RPG**입니다. 화면은 개발 도구처럼 보이지만, 안에 담긴 것은 몬스터, 장비, 기술, 퀘스트입니다. 실행하면 영웅이 스스로 모험하고, 정지하면 다음 여정을 준비할 수 있습니다.
 
-## v1.0.1 화면 개정
+## v1.0.2 화면·템포 개정
 
 VSCode Dark+ 팔레트, 탐색기 트리, activity bar, `adventure.log` / `quest.log` 탭, 모노스페이스 로그, 통합 터미널과 파란 상태바로 UI를 개정했습니다. 게임 용어와 저장 호환성은 그대로 유지합니다.
+
+v1.0.2에서는 상단 장식 메뉴를 비활성 색상으로 구분했고, HP/MP/EXP를 VSCode의 2px 파란 determinate progress 형태로 통일했습니다. 전투 턴은 0.8초에서 3.2초, 탐험은 1.2초에서 4.8초, 귀환은 4.8초, 마을 휴식은 6초로 늘렸습니다. 피해량·경험치·전리품 확률은 바꾸지 않아 기존 캐릭터의 수치 밸런스를 유지하면서 실제 진행만 느긋해졌습니다.
 
 ## 플레이
 
@@ -142,3 +144,5 @@ python3 build.py
 
 
 UI 참고: [VSCode 공식 User Interface 문서](https://code.visualstudio.com/docs/getstarted/userinterface)의 workbench 구성을 기준으로 비교했습니다. AFK IDE는 Microsoft와 관계없는 독립 게임입니다. 상단 메뉴와 소스관리/확장 등의 일부 아이콘은 시각적 표현이며 실제 IDE 기능을 제공하지 않습니다.
+
+VSCode 진행 표시 근거: [공식 progressbar.css](https://github.com/microsoft/vscode/blob/main/src/vs/base/browser/ui/progressbar/progressbar.css). 게임에는 HP/MP 개념이 없으므로, 이 게이지는 VSCode의 determinate 진행 표시를 게임 자원에 적용한 표현입니다.
