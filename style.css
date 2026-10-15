@@ -7,8 +7,10 @@
 
 #recordsDialog{width:1000px}#recordContent{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:15px}.record-card{padding:15px;border:1px solid #454545;overflow-wrap:anywhere}.record-card h3{font-size:13px;color:#9cdcfe}.record-card p{font-size:12px}.record-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.hero-title{display:block;color:#dcdcaa;font-size:10px}#longTerm{margin:15px 0;display:grid;gap:12px}#longTerm select{width:100%;margin:8px 0}.relic-list{display:grid;gap:6px}.relic-list small{display:block}#rebirthDialog{width:580px}#recordSummary{font-size:11px;overflow-wrap:anywhere}@media(max-width:767px){#recordContent{grid-template-columns:1fr}#recordsDialog{padding:16px}.record-tabs button{padding:6px 9px}#longTerm{grid-template-columns:1fr}.record-card{padding:12px}#rebirthDialog{padding:20px}.statusbar{gap:3px}.statusbar #recordsBtn{padding:0 4px}}
 
-@media(max-width:767px){.mobile-nav{grid-template-columns:repeat(5,minmax(0,1fr))}.mobile-nav #mobileRecords{color:#9cdcfe}.mobile-nav button{padding-left:4px;padding-right:4px}}
+@media(max-width:767px){.mobile-nav{grid-template-columns:repeat(6,minmax(0,1fr))}.mobile-nav #mobileRecords{color:#9cdcfe}.mobile-nav button{padding-left:4px;padding-right:4px}}
 
 .record-tools{display:flex;gap:8px;flex-wrap:wrap}.record-tools input{flex:1;min-width:120px}#saveFilesDialog{width:550px}#quickImport{margin-top:10px;width:100%}.record-card[hidden]{display:none}@media(max-width:767px){.record-tools input{width:100%}.record-tools button{min-height:44px}}
 
 #towerPanel{margin:15px 0}#towerPanel select,#towerPanel input[type=number]{width:100%;margin:8px 0}#towerPanel h3{margin-top:16px}#towerPanel button{margin:8px 5px 0 0}
+
+#towerQuickDialog{width:min(480px,calc(100vw - 24px))}#towerQuickContent p{line-height:1.7}#towerQuickContent button{margin:8px 6px 0 0}#mobileTower{color:#9cdcfe}
